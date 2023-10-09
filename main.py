@@ -1,1 +1,1 @@
-print("hehe chuje")
+print("szanująca się grupa")
