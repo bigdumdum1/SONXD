@@ -1,14 +1,7 @@
-def main():
-    data = []
-    text = input("Wprowadz tekst: ")
-    for i in range(len(text)):
-        if text[i].isalpha():
-            if any(text[i] in d for d in data):
-                #do naprawy data[][text[i]] += 1
-            else:
-                data.append({text[i]: 1})
-    print(data)
+def Z_pliku(file):
+    plik = open(file)
+    dane = plik.read()
+    plik.close()
+    return dane
 
-
-if __name__ == "__main__":
-    main()
+print(Z_pliku("plik.txt"))
