@@ -1,14 +1,19 @@
+import matplotlib.pyplot as mat
+
+
 def main():
     zrodlo = input("Wprowadz zrodlo danych (tekst lub plik): ").strip()
     if zrodlo == "tekst":
         tekst = input("Wprowadz tekst: ")
         dane = zlicz_litery(tekst)
+        histogram(dane)
     elif zrodlo == "plik":
         path = input("Wprowadz sciezke do pliku tekstowego: ")
         tekst = Z_pliku(path)
         dane = zlicz_litery(tekst)
+        histogram(dane)
     else:
-        print("Nieprawidłowe źródło danych. Wybierz 'tekst' lub 'plik'.")
+        print("Nieprawidlowe zrodlo danych. Wybierz 'tekst' lub 'plik'.")
 
 
 def zlicz_litery(tekst):
@@ -21,6 +26,20 @@ def zlicz_litery(tekst):
             else:
                 dane[char] = 1
     return dict(sorted(dane.items()))
+
+
+def histogram(dane):
+    litery = list(dane.keys())
+    ilosc = list(dane.values())
+
+    mat.figure(figsize=(14, 7))
+    mat.bar(litery, ilosc)
+    mat.xlabel('Litera')
+    mat.ylabel('Liczba wystapien')
+    mat.title('Histogram liter')
+    mat.grid(axis='y')
+    mat.savefig("histogram")
+    mat.show()
 
 
 def Z_pliku(file):
