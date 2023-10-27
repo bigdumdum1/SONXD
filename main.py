@@ -5,18 +5,18 @@ def main():
     zrodlo = input("Wprowadz zrodlo danych (tekst lub plik): ").strip()
     if zrodlo == "tekst":
         tekst = input("Wprowadz tekst: ")
-        dane = zlicz_litery(tekst)
-        histogram(dane)
+        dane = zLiCz_lItErY(tekst)
+        hIsToGrAm(dane)
     elif zrodlo == "plik":
         path = input("Wprowadz sciezke do pliku tekstowego: ")
-        tekst = Z_pliku(path)
-        dane = zlicz_litery(tekst)
-        histogram(dane)
+        tekst = z_PlIkU(path)
+        dane = zLiCz_lItErY(tekst)
+        hIsToGrAm(dane)
     else:
         print("Nieprawidlowe zrodlo danych. Wybierz 'tekst' lub 'plik'.")
 
 
-def zlicz_litery(tekst):
+def zLiCz_lItErY(tekst):
     dane = {}
     for char in tekst:
         if char.isalpha():
@@ -28,7 +28,7 @@ def zlicz_litery(tekst):
     return dict(sorted(dane.items()))
 
 
-def histogram(dane):
+def hIsToGrAm(dane):
     litery = list(dane.keys())
     ilosc = list(dane.values())
 
@@ -42,7 +42,7 @@ def histogram(dane):
     mat.show()
 
 
-def Z_pliku(file):
+def z_PlIkU(file):
     plik = open(file)
     dane = plik.read()
     plik.close()
