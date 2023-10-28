@@ -3,8 +3,9 @@ from sys import exit
 
 
 def main():
-    zrodlo = input("Wprowadz zrodlo danych (tekst lub plik): ").strip()
-    znak = input("Czy chcesz zliczyc tylko dany znak (y/n): ").strip()
+    zrodlo = menu1()
+    print()
+    znak = menu2()
     if zrodlo == "tekst":
         tekst = input("Wprowadz tekst: ")
         if znak == 'n':
@@ -63,6 +64,7 @@ def Znak(tekst):
                 else:
                     dane[char] = 1
     return dict(sorted(dane.items()))
+
 
 def z_PlIkU(file):
     plik = open(file)
