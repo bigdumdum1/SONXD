@@ -49,8 +49,18 @@ def hIsToGrAm(dane):
     mat.savefig("histogram")
     mat.show()
 
-def Znak():
-    return 0
+def Znak(tekst):
+    danyZnak = input("Podaj znak, ktory chcesz zliczyc: ")
+    dane = {}
+    for char in tekst:
+        if char == danyZnak:
+            if char.isalpha():
+                char = char.lower()
+                if char in dane:
+                    dane[char] += 1
+                else:
+                    dane[char] = 1
+    return dict(sorted(dane.items()))
 
 def z_PlIkU(file):
     plik = open(file)
