@@ -1,4 +1,5 @@
 import matplotlib.pyplot as mat
+from sys import exit
 
 
 def main():
@@ -49,6 +50,7 @@ def hIsToGrAm(dane):
     mat.savefig("histogram")
     mat.show()
 
+
 def Znak(tekst):
     danyZnak = input("Podaj znak, ktory chcesz zliczyc: ")
     dane = {}
@@ -67,6 +69,50 @@ def z_PlIkU(file):
     dane = plik.read()
     plik.close()
     return dane
+
+
+def menu1():
+    while True:
+        print("Menu:")
+        print("1. Chce stworzyc histogram z pliku tekstowego.")
+        print("2. Chce stworzyc histogram wprowadzajac tekst.")
+        print("3. Wyjscie")
+
+        wybor = input("Wybierz opcję: ").strip()
+
+        if wybor == "1":
+            zrodlo = "plik"
+            break
+        elif wybor == "2":
+            zrodlo = "tekst"
+            break
+        elif wybor == "3":
+            exit("Koniec programu")
+        else:
+            print("Nieprawidlowy wybor. Wybierz opcje 1, 2 lub 3")
+    return zrodlo
+
+
+def menu2():
+    while True:
+        print("Menu:")
+        print("1. Chce zliczyc wszystkie litery")
+        print("2. Chce zliczyc wybrane litery.")
+        print("3. Wyjscie")
+
+        wybor = input("Wybierz opcję: ").strip()
+
+        if wybor == "1":
+            znak = "n"
+            break
+        elif wybor == "2":
+            znak = "y"
+            break
+        elif wybor == "3":
+            exit("Koniec programu")
+        else:
+            print("Nieprawidlowy wybor. Wybierz opcje 1, 2 lub 3")
+    return znak
 
 
 if __name__ == "__main__":
